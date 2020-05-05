@@ -1,8 +1,8 @@
-package com.house.project.colorpicker.lib.picker
+package com.tommy.project.colorpicker.lib.picker
 
 import android.graphics.Point
-import com.house.project.colorpicker.lib.bitmap.BitmapGenerator
-import com.house.project.colorpicker.lib.data.SatVal
+import com.tommy.project.colorpicker.lib.bitmap.BitmapGenerator
+import com.tommy.project.colorpicker.lib.data.SatVal
 import kotlin.properties.Delegates
 
 class SatValPicker(bitmapGenerator: BitmapGenerator) : Picker<SatVal>(bitmapGenerator) {

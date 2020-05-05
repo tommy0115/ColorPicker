@@ -1,8 +1,8 @@
-package com.house.project.colorpicker.lib.bitmap
+package com.tommy.project.colorpicker.lib.bitmap
 
 import android.content.Context
 import android.graphics.*
-import com.house.project.colorpicker.lib.view.PickerView
+import com.tommy.project.colorpicker.lib.view.PickerView
 import java.lang.Exception
 
 abstract class BitmapGenerator {

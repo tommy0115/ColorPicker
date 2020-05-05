@@ -1,8 +1,8 @@
-package com.house.project.colorpicker.lib.picker
+package com.tommy.project.colorpicker.lib.picker
 
 import android.graphics.Point
-import com.house.project.colorpicker.lib.bitmap.BitmapGenerator
-import com.house.project.colorpicker.lib.view.PickerView
+import com.tommy.project.colorpicker.lib.bitmap.BitmapGenerator
+import com.tommy.project.colorpicker.lib.view.PickerView
 import kotlin.properties.Delegates
 
 class TransparentPicker(bitmapGenerator: BitmapGenerator) : Picker<Float>(bitmapGenerator) {

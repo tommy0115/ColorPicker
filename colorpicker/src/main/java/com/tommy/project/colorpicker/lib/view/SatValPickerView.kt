@@ -1,4 +1,4 @@
-package com.house.project.colorpicker.lib.view
+package com.tommy.project.colorpicker.lib.view
 
 import android.content.Context
 import android.graphics.Color
@@ -9,13 +9,13 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.core.view.marginLeft
 import androidx.core.view.marginTop
-import com.house.project.colorpicker.lib.PickerChangeListener
-import com.house.project.colorpicker.lib.R
-import com.house.project.colorpicker.lib.bitmap.BitmapGenerator
-import com.house.project.colorpicker.lib.bitmap.SatValBitmapGenerator
-import com.house.project.colorpicker.lib.data.SatVal
-import com.house.project.colorpicker.lib.picker.Picker
-import com.house.project.colorpicker.lib.picker.SatValPicker
+import com.tommy.project.colorpicker.lib.PickerChangeListener
+import com.tommy.project.colorpicker.lib.R
+import com.tommy.project.colorpicker.lib.bitmap.BitmapGenerator
+import com.tommy.project.colorpicker.lib.bitmap.SatValBitmapGenerator
+import com.tommy.project.colorpicker.lib.data.SatVal
+import com.tommy.project.colorpicker.lib.picker.Picker
+import com.tommy.project.colorpicker.lib.picker.SatValPicker
 
 class SatValPickerView : PickerView<SatVal> {
 

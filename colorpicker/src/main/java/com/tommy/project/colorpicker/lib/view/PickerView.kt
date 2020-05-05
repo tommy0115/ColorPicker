@@ -1,4 +1,4 @@
-package com.house.project.colorpicker.lib.view
+package com.tommy.project.colorpicker.lib.view
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -13,11 +13,11 @@ import android.util.AttributeSet
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import com.house.project.colorpicker.lib.PickerChangeListener
-import com.house.project.colorpicker.lib.R
-import com.house.project.colorpicker.lib.bitmap.BitmapGenerator
-import com.house.project.colorpicker.lib.getDpToPixel
-import com.house.project.colorpicker.lib.picker.Picker
+import com.tommy.project.colorpicker.lib.PickerChangeListener
+import com.tommy.project.colorpicker.lib.R
+import com.tommy.project.colorpicker.lib.bitmap.BitmapGenerator
+import com.tommy.project.colorpicker.lib.getDpToPixel
+import com.tommy.project.colorpicker.lib.picker.Picker
 
 abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
 
