@@ -2,6 +2,16 @@
 
 ## Dependency
 ```groovy
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+....
+
 dependencies {
   implementation "com.github.tommy0115:ColorPicker:1.0.1"
 }
