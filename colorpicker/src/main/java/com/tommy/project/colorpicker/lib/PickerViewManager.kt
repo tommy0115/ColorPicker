@@ -1,12 +1,12 @@
-package com.house.project.colorpicker.lib
+package com.tommy.project.colorpicker.lib
 
 import android.graphics.Color
 import android.os.Handler
 import android.os.Looper
-import com.house.project.colorpicker.lib.data.SatVal
-import com.house.project.colorpicker.lib.view.HuePickerView
-import com.house.project.colorpicker.lib.view.SatValPickerView
-import com.house.project.colorpicker.lib.view.TransparentPickerView
+import com.tommy.project.colorpicker.lib.data.SatVal
+import com.tommy.project.colorpicker.lib.view.HuePickerView
+import com.tommy.project.colorpicker.lib.view.SatValPickerView
+import com.tommy.project.colorpicker.lib.view.TransparentPickerView
 
 class PickerViewManager {
 

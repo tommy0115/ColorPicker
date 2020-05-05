@@ -1,10 +1,10 @@
-package com.house.project.colorpicker.lib.bitmap
+package com.tommy.project.colorpicker.lib.bitmap
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
-import com.house.project.colorpicker.lib.view.PickerView
+import com.tommy.project.colorpicker.lib.view.PickerView
 
 
 class HueBitmapGenerator(context: Context) :

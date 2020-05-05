@@ -1,4 +1,4 @@
-package com.house.project.colorpicker.lib.bitmap
+package com.tommy.project.colorpicker.lib.bitmap
 
 import android.content.Context
 import android.graphics.*

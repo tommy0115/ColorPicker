@@ -1,13 +1,10 @@
-package com.house.project.colorpicker
+package com.tommy.project.colorpicker
 
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.house.project.colorpicker.lib.PickerChangeListener
-import com.house.project.colorpicker.lib.PickerViewManager
+import com.tommy.project.colorpicker.lib.PickerChangeListener
+import com.tommy.project.colorpicker.lib.PickerViewManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

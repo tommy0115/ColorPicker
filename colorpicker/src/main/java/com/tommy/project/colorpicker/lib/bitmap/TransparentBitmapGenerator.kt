@@ -1,8 +1,8 @@
-package com.house.project.colorpicker.lib.bitmap
+package com.tommy.project.colorpicker.lib.bitmap
 
 import android.content.Context
 import android.graphics.*
-import com.house.project.colorpicker.lib.getDpToPixel
+import com.tommy.project.colorpicker.lib.getDpToPixel
 
 class TransparentBitmapGenerator(context: Context, var backgroundColor : Int = 0) : BitmapGenerator(context){
 

@@ -1,4 +1,4 @@
-package com.house.project.colorpicker.lib.data
+package com.tommy.project.colorpicker.lib.data
 
 data class SatVal(val sat: Float, val value: Float){
     override fun toString(): String {

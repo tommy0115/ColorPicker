@@ -1,4 +1,4 @@
-package com.house.project.colorpicker.lib
+package com.tommy.project.colorpicker.lib
 
 import android.content.Context
 
