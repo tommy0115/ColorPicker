@@ -95,6 +95,8 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
     private fun initialization() {
 
         thumb = createThumbView()
+        thumb.visibility = View.INVISIBLE
+
         bitmapGenerator = createBitmapGenerator()
         picker = createPicker(bitmapGenerator)
 
@@ -136,6 +138,7 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
                 }
             }
         )
+
 
         /** 계산된 사이즈를 구한 후 추가 초기화 진행 */
         viewTreeObserver.addOnPreDrawListener(object : ViewTreeObserver.OnPreDrawListener {
@@ -206,6 +209,7 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
 
         if (!isReady){
             isReady = true
+            thumb.visibility = View.VISIBLE
             pickerReadyListener?.onReady()
         }
     }
