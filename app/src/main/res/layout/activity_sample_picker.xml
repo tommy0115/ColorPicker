@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_margin="30dp"
+        android:orientation="vertical">
+
+        <com.tommy.project.colorpicker.lib.view.HuePickerView
+            android:id="@+id/huePickerView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:pickerOrientation="HORIZONTAL"
+            app:pickerStokeColor="#946A6A6A"
+            app:pickerStokeRadius="25dp"
+            app:pickerStokeWidth="1dp"
+            app:pickerThumbDrawableSize="40dp" />
+
+        <com.tommy.project.colorpicker.lib.view.SatValPickerView
+            android:id="@+id/satValPickerView"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:pickerStokeColor="#946A6A6A"
+            app:pickerStokeWidth="1dp"
+            app:pickerThumbDrawableSize="40dp" />
+
+        <com.tommy.project.colorpicker.lib.view.TransparentPickerView
+            android:id="@+id/transparentPickerView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:pickerOrientation="HORIZONTAL"
+            app:pickerStokeColor="#946A6A6A"
+            app:pickerStokeRadius="25dp"
+            app:pickerStokeWidth="1dp"
+            app:pickerThumbDrawableSize="40dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/colorCheck"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center" />
+
+
+
+</LinearLayout>

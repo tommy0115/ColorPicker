@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.ShapeDrawable
 import android.util.AttributeSet
+import android.util.Log
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.LinearLayout
@@ -187,6 +188,7 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
     }
 
     override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture?, width: Int, height: Int) {
+        Log.e("PickerView", "onSurfaceTextureSizeChanged")
         isReady = false
 
         bitmapGenerator.recycle()
@@ -200,10 +202,11 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
     }
 
     override fun onSurfaceTextureUpdated(surface: SurfaceTexture?) {
-
+        Log.e("PickerView", "onSurfaceTextureUpdated")
     }
 
     override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?): Boolean {
+        Log.e("PickerView", "onSurfaceTextureDestroyed")
         bitmapGenerator.recycle()
         picker.clearChangeValueCallback()
         isReady = false
@@ -212,6 +215,7 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
     }
 
     override fun onSurfaceTextureAvailable(surface: SurfaceTexture?, width: Int, height: Int) {
+        Log.e("PickerView", "onSurfaceTextureAvailable")
         bitmapGenerator.recycle()
         bitmapGenerator.createBitmap(width, height, pickerStokeRadius, pickerOrientation)?.let {
             val canvas = textureView.lockCanvas()

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="#FFFFFF"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/user_color_right_margin">
+
+            <View
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:background="@drawable/circle_transparent_image">
+            </View>
+
+            <ImageView
+                android:id="@+id/userColor1"
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_default"/>
+
+            <View
+                android:id="@+id/userColorSelector1"
+                android:layout_width="@dimen/user_color_selector_size"
+                android:layout_height="@dimen/user_color_selector_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_selector" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/user_color_right_margin">
+
+            <View
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_transparent_image">
+            </View>
+
+            <ImageView
+                android:id="@+id/userColor2"
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_default"/>
+
+            <View
+                android:id="@+id/userColorSelector2"
+                android:layout_width="@dimen/user_color_selector_size"
+                android:layout_height="@dimen/user_color_selector_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_selector" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/user_color_right_margin">
+
+            <View
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:background="@drawable/circle_transparent_image">
+            </View>
+
+            <ImageView
+                android:id="@+id/userColor3"
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_default"/>
+
+            <View
+                android:id="@+id/userColorSelector3"
+                android:layout_width="@dimen/user_color_selector_size"
+                android:layout_height="@dimen/user_color_selector_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_selector" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/user_color_right_margin">
+
+            <View
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_transparent_image">
+            </View>
+
+            <ImageView
+                android:id="@+id/userColor4"
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_default"/>
+
+            <View
+                android:id="@+id/userColorSelector4"
+                android:layout_width="@dimen/user_color_selector_size"
+                android:layout_height="@dimen/user_color_selector_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_selector" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/user_color_right_margin">
+
+            <View
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:background="@drawable/circle_transparent_image">
+            </View>
+
+            <ImageView
+                android:id="@+id/userColor5"
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_default"/>
+
+            <View
+                android:id="@+id/userColorSelector5"
+                android:layout_width="@dimen/user_color_selector_size"
+                android:layout_height="@dimen/user_color_selector_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_selector" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:background="@drawable/circle_transparent_image">
+            </View>
+
+            <ImageView
+                android:id="@+id/userColor6"
+                android:layout_width="@dimen/user_color_size"
+                android:layout_height="@dimen/user_color_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_default"/>
+
+            <View
+                android:id="@+id/userColorSelector6"
+                android:layout_width="@dimen/user_color_selector_size"
+                android:layout_height="@dimen/user_color_selector_size"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_user_color_selector" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <com.tommy.project.colorpicker.lib.view.HuePickerView
+            android:id="@+id/huePickerView"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            app:pickerOrientation="VERTICAL"
+            app:pickerStokeColor="#946A6A6A"
+            app:pickerStokeRadius="25dp"
+            app:pickerStokeWidth="1dp"
+            app:pickerThumbDrawableSize="40dp" />
+
+        <com.tommy.project.colorpicker.lib.view.SatValPickerView
+            android:id="@+id/satValPickerView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:pickerStokeColor="#94828282"
+            app:pickerStokeWidth="1dp"
+            app:pickerThumbDrawableSize="40dp" />
+
+    </LinearLayout>
+
+    <com.tommy.project.colorpicker.lib.view.TransparentPickerView
+        android:id="@+id/transparentPickerView"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        app:pickerOrientation="HORIZONTAL"
+        app:pickerStokeColor="#946A6A6A"
+        app:pickerStokeRadius="25dp"
+        app:pickerStokeWidth="1dp"
+        app:pickerThumbDrawableSize="40dp" />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/transparent_repeat_image">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_info_background"/>
+
+        <FrameLayout
+            android:id="@+id/saveUserColorBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/selectColorPreview"
+                android:layout_margin="0.5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/saveIconView"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_margin="5dp"
+                android:layout_gravity="right|center_vertical"
+                android:visibility="invisible"
+                android:background="@drawable/ic_save_icon_background"
+                android:padding="5dp"
+                android:src="@drawable/ic_save_black_24dp" />
+
+        </FrameLayout>
+
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cancelBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="취소" />
+
+        <TextView
+            android:id="@+id/용"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="적용" />
+
+    </LinearLayout>
+
+</LinearLayout>

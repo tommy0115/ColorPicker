@@ -8,61 +8,16 @@
     android:background="@android:color/transparent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <Button
+        android:id="@+id/activitySampleBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <com.tommy.project.colorpicker.lib.view.SatValPickerView
-            android:id="@+id/satValPickerView"
-            android:layout_width="wrap_content"
-            android:layout_height="450dp"
-            app:pickerThumbDrawableSize="35dp"
-            app:pickerStokeColor="#946A6A6A"
-            app:pickerStokeWidth="1dp"/>
-
-        <com.tommy.project.colorpicker.lib.view.HuePickerView
-            android:id="@+id/huePickerView"
-            android:layout_width="300dp"
-            android:layout_height="35dp"
-            app:pickerThumbDrawableSize="35dp"
-            app:pickerOrientation="HORIZONTAL"
-            app:pickerStokeRadius="25dp"
-            app:pickerStokeColor="#946A6A6A"
-            app:pickerStokeWidth="1dp"/>
-
-        <com.tommy.project.colorpicker.lib.view.TransparentPickerView
-            android:layout_marginTop="10dp"
-            android:id="@+id/transparentPickerView"
-            android:layout_width="300dp"
-            android:layout_height="35dp"
-            app:pickerThumbDrawableSize="35dp"
-            app:pickerOrientation="HORIZONTAL"
-            app:pickerStokeRadius="25dp"
-            app:pickerStokeColor="#946A6A6A"
-            app:pickerStokeWidth="1dp"/>
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@color/colorAccent"/>
-
-    </LinearLayout>
-
-
-
-    <ImageView
-        android:id="@+id/colorCheck"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center" />
+        android:text="activity sample"/>
 
     <Button
-        android:id="@+id/hueChangeBtn"
+        android:id="@+id/dialogSampleBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        android:text="dialog sample"/>
 
 </LinearLayout>

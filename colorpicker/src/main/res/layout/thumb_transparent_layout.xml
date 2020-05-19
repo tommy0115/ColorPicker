@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="3dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/circle_transparent_image">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/colorImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="3dp"
+        android:layout_margin="3dp"
+        android:background="@drawable/thumb_common"
+        android:layout_gravity="center"/>
+
+</FrameLayout>

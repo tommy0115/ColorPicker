@@ -75,7 +75,7 @@ class TransparentPickerView : PickerView<Float> {
 
     override fun createThumbView(): View {
         val view =
-            LayoutInflater.from(context).inflate(R.layout.thumb_layout, null) as FrameLayout
+            LayoutInflater.from(context).inflate(R.layout.thumb_transparent_layout, null) as FrameLayout
         colorImageView = view.findViewById(R.id.colorImageView)
         return view
     }
@@ -90,7 +90,18 @@ class TransparentPickerView : PickerView<Float> {
         val transparentPicker = TransparentPicker(bitmapGenerator)
         transparentPicker.addChangeValueCallback(object : PickerChangeListener<Float> {
             override fun onChangeValue(data: Float) {
-
+                transparentBitmapGenerator?.let {
+                    val backgroundColor = it.backgroundColor
+                    val color = Color.argb(
+                        data.toInt(),
+                        Color.red(backgroundColor),
+                        Color.green(backgroundColor),
+                        Color.blue(backgroundColor)
+                    )
+                    colorImageView?.let { imageView ->
+                        setBackgroundColorAndRetainShape(color, imageView.background)
+                    }
+                }
             }
         })
 
@@ -132,7 +143,7 @@ class TransparentPickerView : PickerView<Float> {
         transparentBitmapGenerator?.let {
             val backgroundColor = it.backgroundColor
             val color = Color.argb(
-                255,
+                picker.getValue().toInt(),
                 Color.red(backgroundColor),
                 Color.green(backgroundColor),
                 Color.blue(backgroundColor)
@@ -140,7 +151,6 @@ class TransparentPickerView : PickerView<Float> {
             colorImageView?.let { imageView ->
                 setBackgroundColorAndRetainShape(color, imageView.background)
             }
-
         }
     }
 }
