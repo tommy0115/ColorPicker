@@ -203,6 +203,11 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
 
     override fun onSurfaceTextureUpdated(surface: SurfaceTexture?) {
         Log.e("PickerView", "onSurfaceTextureUpdated")
+
+        if (!isReady){
+            isReady = true
+            pickerReadyListener?.onReady()
+        }
     }
 
     override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?): Boolean {
@@ -222,9 +227,6 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
             canvas.drawBitmap(it, 0.0f, 0.0f, null)
             textureView.unlockCanvasAndPost(canvas)
         }
-
-        isReady = true
-        pickerReadyListener?.onReady()
     }
 
     protected abstract fun createThumbView(): View

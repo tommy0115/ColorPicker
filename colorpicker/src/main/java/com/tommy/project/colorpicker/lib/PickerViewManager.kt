@@ -100,13 +100,9 @@ class PickerViewManager {
             override fun onChangeValue(data: Float) {
                 hue = data
 
-                satValPickerView.takeIf { it.isReady }?.let {
-                    it.changeHue(data)
-                } ?: return
+                satValPickerView.takeIf { it.isReady }?.changeHue(data) ?: return
 
-                transparentPickerView.takeIf { it.isReady }?.let {
-                    it.changeColor(getColor())
-                } ?: return
+                transparentPickerView.takeIf { it.isReady }?.changeColor(getColor()) ?: return
 
                 pickerListener.onChangeValue(getColor())
             }
@@ -118,9 +114,7 @@ class PickerViewManager {
             override fun onChangeValue(data: SatVal) {
                 satVal = data
 
-                transparentPickerView.takeIf { it.isReady }?.let {
-                    it.changeColor(getColor())
-                } ?: return
+                transparentPickerView.takeIf { it.isReady }?.changeColor(getColor()) ?: return
 
                 pickerListener.onChangeValue(getColor())
             }
@@ -132,8 +126,10 @@ class PickerViewManager {
             PickerChangeListener<Float> {
             override fun onChangeValue(data: Float) {
                 transparent = data
-                takeIf { isReady } ?: return
-                pickerListener.onChangeValue(getColor())
+                takeIf { isReady }.apply {
+                    pickerListener.onChangeValue(getColor())
+                } ?: return
+
             }
         })
     }
