@@ -1,85 +1,63 @@
 package com.tommy.project.colorpicker.lib
 
 import android.graphics.Color
-import android.os.Handler
-import android.os.Looper
 import com.tommy.project.colorpicker.lib.data.SatVal
-import com.tommy.project.colorpicker.lib.view.HuePickerView
-import com.tommy.project.colorpicker.lib.view.SatValPickerView
-import com.tommy.project.colorpicker.lib.view.TransparentPickerView
+import com.tommy.project.colorpicker.lib.view.*
 
 class PickerViewManager {
 
-    private val huePickerView: HuePickerView
-    private val satValPickerView: SatValPickerView
-    private val transparentPickerView: TransparentPickerView
     private val pickerListener: PickerChangeListener<Int>
-
     private var hue: Float = 0f
     private var satVal: SatVal = SatVal(1f, 1f)
     private var transparent: Float = 255f
 
+    private var pickerList = mutableListOf<PickerView<*>>()
+
     constructor(
         defaultColor: Int,
-        huePickerView: HuePickerView,
-        satValPickerView: SatValPickerView,
-        transparentPickerView: TransparentPickerView,
-        pickerListener: PickerChangeListener<Int>
+        hueView: HuePickerView,
+        satValView: SatValPickerView,
+        transparentView: TransparentPickerView,
+        changeListener: PickerChangeListener<Int>
     ) {
-        this.huePickerView = huePickerView
-        this.satValPickerView = satValPickerView
-        this.transparentPickerView = transparentPickerView
-        this.pickerListener = pickerListener
-
+        this.pickerListener = changeListener
+        pickerList.add(hueView as PickerView<*>)
+        pickerList.add(satValView as PickerView<*>)
+        pickerList.add(transparentView as PickerView<*>)
         parsingColor(defaultColor)
 
-        huePickerView.viewTreeObserver.addOnGlobalLayoutListener {
-            Handler(Looper.getMainLooper()).post {
-                huePickerView.placeThumb(hue)
-            }
+        pickerList.forEach { pickerView ->
+            pickerView.setOnPickerReadyListener(object : PickerReadyListener {
+                override fun onDestroy() {
+
+                }
+
+                override fun onChange() {
+
+                }
+
+                override fun onReady() {
+                    when (pickerView) {
+                        is HuePickerView -> {
+                            pickerView.placeThumb(hue)
+                            pickerView.setHueChangeListener(satValView, transparentView)
+                        }
+
+                        is SatValPickerView -> {
+                            pickerView.changeHue(hue)
+                            pickerView.placeThumb(satVal)
+                            pickerView.setSatValChangeListener(transparentView)
+                        }
+
+                        is TransparentPickerView -> {
+                            pickerView.changeColor(getColor())
+                            pickerView.placeThumb(transparent)
+                            pickerView.setTransparentChangeListener()
+                        }
+                    }
+                }
+            })
         }
-
-        satValPickerView.viewTreeObserver.addOnGlobalLayoutListener {
-            Handler(Looper.getMainLooper()).post {
-                satValPickerView.changeHue(hue)
-                satValPickerView.placeThumb(satVal)
-            }
-        }
-
-        transparentPickerView.viewTreeObserver.addOnGlobalLayoutListener {
-            Handler(Looper.getMainLooper()).post{
-                transparentPickerView.changeColor(getColor())
-                transparentPickerView.placeThumb(transparent)
-            }
-        }
-
-        setDependency()
-    }
-
-    private fun setDependency() {
-        huePickerView.addChangeValue(object : PickerChangeListener<Float> {
-            override fun onChangeValue(data: Float) {
-                hue = data
-                satValPickerView.changeHue(data)
-                transparentPickerView.changeColor(getColor())
-                pickerListener.onChangeValue(getColor())
-            }
-        })
-
-        satValPickerView.addChangeValue(object : PickerChangeListener<SatVal> {
-            override fun onChangeValue(data: SatVal) {
-                satVal = data
-                transparentPickerView.changeColor(getColor())
-                pickerListener.onChangeValue(getColor())
-            }
-        })
-
-        transparentPickerView.addChangeValue(object : PickerChangeListener<Float> {
-            override fun onChangeValue(data: Float) {
-                transparent = data
-                pickerListener.onChangeValue(getColor())
-            }
-        })
     }
 
     fun getColor(): Int {
@@ -88,23 +66,80 @@ class PickerViewManager {
 
     fun setColor(color: Int) {
         parsingColor(color)
-        changeView()
+        changePlaceView()
     }
 
-    private fun changeView() {
-        Handler(Looper.getMainLooper()).post {
-            huePickerView.placeThumb(hue)
+    private fun changePlaceView() {
+        pickerList.forEach { pickerView ->
 
-            satValPickerView.changeHue(hue)
-            satValPickerView.placeThumb(satVal)
+            pickerView.takeIf { it.isReady }?:return
 
-            transparentPickerView.changeColor(getColor())
-            transparentPickerView.placeThumb(transparent)
+            when (pickerView) {
+                is HuePickerView -> {
+                    pickerView.placeThumb(hue)
+                }
+
+                is SatValPickerView -> {
+                    pickerView.changeHue(hue)
+                    pickerView.placeThumb(satVal)
+                }
+
+                is TransparentPickerView -> {
+                    pickerView.changeColor(getColor())
+                    pickerView.placeThumb(transparent)
+                }
+            }
         }
     }
 
-    private fun parsingColor(defaultColor: Int) {
+    private fun HuePickerView.setHueChangeListener(
+        satValPickerView: SatValPickerView,
+        transparentPickerView: TransparentPickerView
+    ) {
+        addChangeValue(object : PickerChangeListener<Float> {
+            override fun onChangeValue(data: Float) {
+                hue = data
 
+                satValPickerView.takeIf { it.isReady }?.let {
+                    it.changeHue(data)
+                } ?: return
+
+                transparentPickerView.takeIf { it.isReady }?.let {
+                    it.changeColor(getColor())
+                } ?: return
+
+                pickerListener.onChangeValue(getColor())
+            }
+        })
+    }
+
+    private fun SatValPickerView.setSatValChangeListener(transparentPickerView: TransparentPickerView) {
+        addChangeValue(object : PickerChangeListener<SatVal> {
+            override fun onChangeValue(data: SatVal) {
+                satVal = data
+
+                transparentPickerView.takeIf { it.isReady }?.let {
+                    it.changeColor(getColor())
+                } ?: return
+
+                pickerListener.onChangeValue(getColor())
+            }
+        })
+    }
+
+    private fun TransparentPickerView.setTransparentChangeListener() {
+        addChangeValue(object :
+            PickerChangeListener<Float> {
+            override fun onChangeValue(data: Float) {
+                transparent = data
+                takeIf { isReady } ?: return
+                pickerListener.onChangeValue(getColor())
+            }
+        })
+    }
+
+
+    private fun parsingColor(defaultColor: Int) {
         var hsv = FloatArray(3)
         Color.RGBToHSV(
             Color.red(defaultColor),

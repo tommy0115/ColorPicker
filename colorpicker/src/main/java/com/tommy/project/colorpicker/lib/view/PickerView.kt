@@ -19,6 +19,13 @@ import com.tommy.project.colorpicker.lib.bitmap.BitmapGenerator
 import com.tommy.project.colorpicker.lib.getDpToPixel
 import com.tommy.project.colorpicker.lib.picker.Picker
 
+
+interface PickerReadyListener{
+    fun onDestroy()
+    fun onChange()
+    fun onReady()
+}
+
 abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
 
     enum class Orientation {
@@ -38,6 +45,9 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
 
     private lateinit var bitmapGenerator: BitmapGenerator
 
+    var isReady = false
+    private var pickerReadyListener : PickerReadyListener? = null
+
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         initializationAttribute(context, attrs)
         initialization()
@@ -50,6 +60,10 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
     ) {
         initializationAttribute(context, attrs)
         initialization()
+    }
+
+    fun setOnPickerReadyListener(listener: PickerReadyListener?){
+        this.pickerReadyListener = listener
     }
 
     open fun initializationAttribute(context: Context, attrs: AttributeSet?) {
@@ -173,12 +187,16 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
     }
 
     override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture?, width: Int, height: Int) {
+        isReady = false
+
         bitmapGenerator.recycle()
         bitmapGenerator.createBitmap(width, height, pickerStokeRadius, pickerOrientation).let {
             val canvas = textureView.lockCanvas()
             canvas.drawBitmap(it, 0.0f, 0.0f, null)
             textureView.unlockCanvasAndPost(canvas)
         }
+
+        pickerReadyListener?.onChange()
     }
 
     override fun onSurfaceTextureUpdated(surface: SurfaceTexture?) {
@@ -188,6 +206,8 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
     override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?): Boolean {
         bitmapGenerator.recycle()
         picker.clearChangeValueCallback()
+        isReady = false
+        pickerReadyListener?.onDestroy()
         return true
     }
 
@@ -198,6 +218,9 @@ abstract class PickerView<T> : FrameLayout, TextureView.SurfaceTextureListener {
             canvas.drawBitmap(it, 0.0f, 0.0f, null)
             textureView.unlockCanvasAndPost(canvas)
         }
+
+        isReady = true
+        pickerReadyListener?.onReady()
     }
 
     protected abstract fun createThumbView(): View

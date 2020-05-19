@@ -41,6 +41,12 @@ class HuePickerView : PickerView<Float> {
 
     override fun createPicker(bitmapGenerator: BitmapGenerator): Picker<Float> {
         val huePicker = HuePicker(bitmapGenerator, 0f)
+        colorImageView?.let {
+            (it.background as GradientDrawable).apply {
+                setColor(Color.HSVToColor(255, floatArrayOf(0f, 1f, 1f)))
+            }
+        }
+
         huePicker.addChangeValueCallback(object : PickerChangeListener<Float> {
             override fun onChangeValue(data: Float) {
                 huePicker.setValue(data)
